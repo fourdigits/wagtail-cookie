@@ -1,0 +1,26 @@
+{% load wagtailcore_tags wagtailsettings_tags %}
+{% get_settings use_default_site=True %}
+
+
+{% if not hide_modal and request.path != '/cookies/' %}
+  <div class="cookiewall" id="cookiewall" style="display: none;">
+    <div class="cookiewall-wrapper">
+      <div class="cookiewall__body">
+        <div class="richtext">
+          <h2>{{ settings.cookie.Cookie.modal_title }}</h2>
+          {{ settings.cookie.Cookie.modal_text|richtext }}
+        </div>
+        <div class="cookiewall__buttons">
+          <a class="button button--blue-border" href="{% url 'cookie:cookie' %}">Meer informatie</a>
+        </div>
+        <form method="post" action="{% url 'cookie:cookie' %}">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div class="cookiewall__buttons">
+            <button class="button button--blue" type="submit">Opslaan en doorgaan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endif %}

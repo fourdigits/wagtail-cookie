@@ -1,0 +1,23 @@
+#: cookie/wagtail_hooks.py:13 cookie/wagtail_hooks.py:22
+msgid "Title"
+msgstr ""
+
+#: cookie/wagtail_hooks.py:18 cookie/wagtail_hooks.py:31
+msgid "Text"
+msgstr ""
+
+#: cookie/wagtail_hooks.py:27
+msgid "Introduction"
+msgstr ""
+
+#: cookie/wagtail_hooks.py:41
+msgid "Modal (popup)"
+msgstr ""
+
+#: cookie/wagtail_hooks.py:49
+msgid "Page"
+msgstr ""
+
+#: cookie/wagtail_hooks.py:55
+msgid "Cookie Wall"
+msgstr ""

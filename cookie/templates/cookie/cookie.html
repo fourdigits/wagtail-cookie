@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load wagtailcore_tags wagtailsettings_tags %}
+{% get_settings use_default_site=True %}
+
+{% block content %}
+    <div class="content-hero js-hero" role="banner">
+      <div class="content-hero__content-wrap">
+        <div class="content-hero__content">
+          <h1 class="content-hero__content__title">{{ settings.cookie.Cookie.page_title }}</h1>
+          <div class="content-hero__content__lead">{{ settings.cookie.Cookie.page_introduction }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section section--collapsibles">
+      <div class="section__head">
+        <div class="section__head-wrap">
+          {{ settings.cookie.Cookie.page_text|richtext }}
+        </div>
+      </div>
+    </div>
+
+    {% for block in settings.cookie.Cookie.collapsible %}{% include_block block %}{% endfor %}
+
+    <div class="section section--collapsibles">
+      <div class="section__head">
+        <div class="section__head-wrap">
+          <h2>Huidige cookie-settings</h2>
+        </div>
+      </div>
+      <div class="section__body">
+        <div class="section__body-wrap">
+          <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="cookiewall__buttons">
+              <button class="button button--blue" type="submit">Opslaan</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
